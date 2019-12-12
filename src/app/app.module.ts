@@ -11,6 +11,7 @@ import { GotyComponent } from './pages/goty/goty.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

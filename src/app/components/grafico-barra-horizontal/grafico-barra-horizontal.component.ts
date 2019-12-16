@@ -1,11 +1,11 @@
-import { Component, OnDestroy, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-grafico-barra-horizontal',
   templateUrl: './grafico-barra-horizontal.component.html',
   styleUrls: ['./grafico-barra-horizontal.component.css']
 })
-export class GraficoBarraHorizontalComponent implements OnDestroy{
+export class GraficoBarraHorizontalComponent {
 
   
   
@@ -48,8 +48,5 @@ export class GraficoBarraHorizontalComponent implements OnDestroy{
     console.log(event);
   }
 
-  // ngOnDestroy(){
-  //   clearInterval( this.intervalo );
-  // }
 
 }

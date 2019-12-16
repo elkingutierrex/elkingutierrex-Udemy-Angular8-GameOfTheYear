@@ -39,21 +39,21 @@ export class GraficoBarraHorizontalComponent implements OnDestroy{
 
   colorScheme = 'nightLights';
 
-  intervalo;
+  // intervalo;
 
   constructor() {
 
-    this.intervalo = setInterval( ()=>  {
-      console.log("tick");
+    // this.intervalo = setInterval( ()=>  {
+    //   console.log("tick");
 
-      const newResults = [...this.results];
+    //   const newResults = [...this.results];
 
-      for (let i in newResults){
-        this.results[i].value = Math.round(Math.random()* 500);
-      }
-      this.results = [...newResults];
+    //   for (let i in newResults){
+    //     this.results[i].value = Math.round(Math.random()* 500);
+    //   }
+    //   this.results = [...newResults];
   
-    },1500)
+    // },1500)
     
 
  
@@ -63,8 +63,8 @@ export class GraficoBarraHorizontalComponent implements OnDestroy{
     console.log(event);
   }
 
-  ngOnDestroy(){
-    clearInterval( this.intervalo );
-  }
+  // ngOnDestroy(){
+  //   clearInterval( this.intervalo );
+  // }
 
 }

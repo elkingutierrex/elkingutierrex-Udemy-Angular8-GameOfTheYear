@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Game } from 'src/interfaces/interfaces';
+import { of, from } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
   
-  juegos: Game[] = [];
+  private juegos: Game[] = [];
 
 
   constructor( private http: HttpClient) { 
@@ -17,8 +19,20 @@ export class GameService {
 
   getNominados( ){
 
-    return this.http.get<Game[]>(`${ environment.url }/api/goty`);
+    if( this.juegos.length > 0){
+      console.log("desde cache!!");      
+      return of (this.juegos)
+    }else{
+      console.log("consulta desde el back");
+      return this.http.get<Game[]>(`${ environment.url }/api/goty`)
+        .pipe(
+          tap(
+            juegos => this.juegos = juegos
+          )
+        );
+    }
 
+    
   }
 
 
